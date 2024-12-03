@@ -1,6 +1,9 @@
 
 $(document).ready(function () {
 
+    $('#principal').attr('src', '../modulos/panel.php');
+    
+
     $('#ocultarBarraLateral').click(function() {
         $('nav').toggleClass('d-none');
     });
@@ -28,6 +31,14 @@ $(document).ready(function () {
         $('#principal').attr('src', '../modulos/usuarios/usuarios.php');
     })
 
+    $('#menu_ssrs').click(function () {
+        $('#principal').attr('src', '../modulos/ssr/ssr.php');
+    })
+
+
+    $('#menu_seguimiento').on('click', function () {
+        $('#principal').attr('src', '../modulos/seguimiento/seguimiento.php');
+    });
     
 
 });

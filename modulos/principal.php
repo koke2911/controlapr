@@ -21,14 +21,14 @@ if (empty($_SESSION)) {
     <link rel="stylesheet" href="../static/vendor/datatables/dataTables.cellEdit.css">
     <link href="../static/js/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../css/style.css">
-     <script src="../static/js/fontawesome.all.js" crossorigin="anonymous"></script>
+    <script src="../static/js/fontawesome.all.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
     <header class="navbar navbar-expand-lg shadow">
         <div class="container-fluid d-flex justify-content-between">
-            <a class="navbar-brand" href="#"><i class="fas fa-bars me-2" id="ocultarBarraLateral"></i>     Control APR</a>
+            <a class="navbar-brand" href="#" style="padding-right: 20px;"><i class="fas fa-bars me-2" id="ocultarBarraLateral" style="padding-right: 20px;"></i>Control APR <i class="fas fa-tint me-2" style="padding-right: 20px;color:#1abc9c"></i></a>
             <span><?php echo strtoupper($nombre_usuario . ' | ' . $rut_usuario); ?></span>
             <div>
                 <button class="btn btn-outline-light me-2" id="miPerfil"><i class="fas fa-user"></i> Mi Perfil</button>

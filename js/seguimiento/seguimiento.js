@@ -34,7 +34,7 @@ function cargar_datos_formulario(data) {
     $('#txt_solucion').val(data.solucion);
     $('#txt_estado').val(data.estado_seg).change();
     
-    $('#cmb_apr').val(data.ssr);
+    $('#cmb_apr').val(data.id_ssr);
 
     habilitarCampos(true, false);
     edita = 1;

@@ -14,7 +14,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM seguimiento where estado=1 order by ssr asc";
+$sql = "SELECT s.id,
+            s.fecha,
+            a.ssr,
+            s.ssr as id_ssr,
+            s.nombre_contacto,
+            s.cargo,
+            s.contacto,
+            s.problema,
+            s.solucion,
+            estado_seg FROM seguimiento s inner join SSR a on a.id=s.ssr where s.estado=1 order by s.ssr asc";
 $result = $conn->query($sql);
 
 $filas = [];
@@ -28,6 +37,7 @@ if ($result->num_rows > 0) {
             'id' => $row['id'],
             'fecha' => $row['fecha'],
             'ssr' => $row['ssr'],
+            'id_ssr' => $row['id_ssr'],
             'nombre_contacto' => $row['nombre_contacto'],
             'cargo' => $row['cargo'],
             'contacto' => $row['contacto'],

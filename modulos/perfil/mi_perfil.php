@@ -14,9 +14,10 @@ $id_usuario = $_SESSION['id_usuario'];
     <link rel="stylesheet" href="../../static/vendor/datatables/dataTables.cellEdit.css">
     <link rel="stylesheet" href="../../static/css/select.dataTables.min.css">
     <link href="../../static/js/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="../../static/js/fontawesome.all.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="../../css/style.css">
-    
+
 </head>
 
 <body>

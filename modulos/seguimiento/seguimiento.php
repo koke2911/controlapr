@@ -53,7 +53,6 @@
                                         <div class="mb-3">
                                             <label for="txt_estado" class="form-label">Estado</label>
                                             <select class="form-control selectpicker" id="txt_estado" name="txt_estado" data-style="btn-black">
-
                                                 <option value="Pendiente" data-content="<span style='background-color:#F7F769; color:#000000;'>Pendiente</span>">Pendiente</option>
                                                 <option value="No solucionado" data-content="<span style='background-color:#FB6666; color:#000000;'>No solucionado</span>">No solucionado</option>
                                                 <option value="Solucionado" data-content="<span style='background-color:#96D796; color:#000000;'>Solucionado</span>">Solucionado</option>

@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 $id = $_GET['id'];
 $cond="";
 
-if(isset($id)){
+if(isset($id) && $id!=""){
     $cond=" and id=$id";
 }
 

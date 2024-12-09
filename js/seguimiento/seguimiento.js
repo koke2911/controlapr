@@ -46,7 +46,7 @@ function llenar_ssr() {
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: 'views/aprs.php',
+        url: 'views/aprs.php?id=',
     }).done(function (data) {
 
         $("#cmb_apr").html('');

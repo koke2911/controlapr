@@ -50,7 +50,7 @@ function llenar_ssr() {
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: '../seguimiento/views/aprs.php',
+        url: '../seguimiento/views/aprs.php?id=',
     }).done(function (data) {
 
         $("#txt_nombre_ssr").html('');

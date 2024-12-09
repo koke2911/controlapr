@@ -60,8 +60,8 @@ function llenar_ssr() {
         $("#cmb_apr").append(opciones);
 
     }).fail(function (error) {
-        respuesta = JSON.parse(error["responseText"]);
-        alerta.error("alerta", respuesta.message);
+        // respuesta = JSON.parse(error["responseText"]);
+        // alerta.error("alerta", respuesta.message);
     });
 }
 

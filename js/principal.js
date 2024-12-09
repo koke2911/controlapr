@@ -39,6 +39,11 @@ $(document).ready(function () {
     $('#menu_seguimiento').on('click', function () {
         $('#principal').attr('src', '../modulos/seguimiento/seguimiento.php');
     });
+
+
+    $('#menu_pagos').on('click', function () {
+        $('#principal').attr('src', '../modulos/pago/pago.php');
+    });
     
 
 });

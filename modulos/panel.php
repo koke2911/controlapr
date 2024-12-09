@@ -116,7 +116,7 @@
     <main>
         <!-- Menú de Opciones -->
         <div class="dashboard-container">
-            <div class="dashboard-card">
+            <div class="dashboard-card" href="usuarios/usuarios.php">
                 <i class="fas fa-users"></i>
                 <h3><a href="usuarios/usuarios.php">Usuarios</a></h3>
             </div>
@@ -134,7 +134,7 @@
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-money-bill-wave"></i>
-                <h3><a href="pagos-software.html">Pagos Software</a></h3>
+                <h3><a href="pago/pago.php">Pagos Software</a></h3>
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-tachometer-alt"></i>
@@ -142,15 +142,23 @@
             </div>
         </div>
 
+            <div class="text-center row">
+                <div class="col-6">
+                    <h2 class="text-center">Seguimientos</h2>
+                </div>
+                <div class="col-6">
+                    <h2 class="text-center">Pagos Software $</h2>
+                </div>
+            </div>           
+        
         <!-- Gráficos -->
-        <div class="graph-container">
+        <div class="graph-container">            
             <div class="graph-card">
-                <h3>Seguimientos Pendientes</h3>
                 <canvas id="seguimientoChart" width="200" height="200" style="position: absolute;"></canvas>
             </div>
             <div class="graph-card">
-                <h3> $ Pagos Software</h3>
-                <canvas id="seguimientoChart2" width="200" height="200" style="position: absolute;"></canvas>
+                <canvas id="pagosChart" width="200" height="165"></canvas>
+
             </div>
         </div>
     </main>

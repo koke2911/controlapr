@@ -8,16 +8,18 @@ function habilitarCampos(a, b) {
     $('#btn_cancelar').prop('disabled', b);
     $('#btn_aliminar').prop('disabled', b);
 
-    $('#txt_estado').prop('disabled', b);
-    $('#txt_fecha').prop('disabled', b);
-    $('#cmb_apr').prop('disabled', b);
-    $('#txt_nombre_contacto').prop('disabled', b);
-    $('#txt_cargo').prop('disabled', b);
+    $('#txt_fecha_pago').prop('disabled', b);
+    $('#txt_mes').prop('disabled', b);
+    $('#txt_nombre_ssr').prop('disabled', b);
+    $('#txt_rut').prop('disabled', b);
+    $('#txt_email').prop('disabled', b);
+    $('#txt_region').prop('disabled', b);
     $('#txt_contacto').prop('disabled', b);
-    $('#txt_problema').prop('disabled', b);
-    $('#txt_solucion').prop('disabled', b);
-
-    
+    $('#txt_cargo').prop('disabled', b);
+    $('#txt_numero').prop('disabled', b);
+    $('#txt_contacto2').prop('disabled', b);
+    $('#txt_total_pago').prop('disabled', b);
+    $('#txt_numero_factura').prop('disabled', b);
 
 
 }
@@ -25,17 +27,19 @@ function habilitarCampos(a, b) {
 
 function cargar_datos_formulario(data) {
 
-    $('#txt_id').val(data.id);
-    $('#txt_fecha').val(data.fecha);
-    $('#txt_nombre_contacto').val(data.nombre_contacto);
-    $('#txt_cargo').val(data.cargo);
+    $('#txt_fecha_pago').val(data.fecha_pago);
+    $('#txt_mes').val(data.mes);
+    $('#txt_nombre_ssr').val(data.id_ssr);
+    $('#txt_rut').val(data.rut);
+    $('#txt_email').val(data.email);
+    $('#txt_region').val(data.region);
     $('#txt_contacto').val(data.contacto);
-    $('#txt_problema').val(data.problema);
-    $('#txt_solucion').val(data.solucion);
-    $('#txt_estado').val(data.estado_seg).change();
-    
-    $('#cmb_apr').val(data.id_ssr);
-
+    $('#txt_cargo').val(data.cargo);
+    $('#txt_numero').val(data.numero);
+    $('#txt_contacto2').val(data.contacto2);
+    $('#txt_total_pago').val(data.total_pago);
+    $('#txt_numero_factura').val(data.numero_factura);
+    $('#txt_id').val(data.id);
     habilitarCampos(true, false);
     edita = 1;
 }
@@ -46,10 +50,10 @@ function llenar_ssr() {
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: 'views/aprs.php',
+        url: '../seguimiento/views/aprs.php',
     }).done(function (data) {
 
-        $("#cmb_apr").html('');
+        $("#txt_nombre_ssr").html('');
 
         var opciones = "<option value=\"\">Seleccione una APR</option>";
 
@@ -57,7 +61,7 @@ function llenar_ssr() {
             opciones += "<option value=\"" + data[i].id + "\">" + data[i].nombre + "</option>";
         }
 
-        $("#cmb_apr").append(opciones);
+        $("#txt_nombre_ssr").append(opciones);
 
     }).fail(function (error) {
         respuesta = JSON.parse(error["responseText"]);
@@ -66,27 +70,30 @@ function llenar_ssr() {
 }
 
 
-function guardar_seguimiento(){
-   
+function guardar_seguimiento() {
+
 
     var data = {
-        estado: $('#txt_estado').val(),
-        fecha: $('#txt_fecha').val(),
-        apr: $('#cmb_apr').val(),
-        nombre_contacto: $('#txt_nombre_contacto').val(),
-        cargo: $('#txt_cargo').val(),
+        fecha_pago: $('#txt_fecha_pago').val(),
+        mes: $('#txt_mes').val(),
+        nombre_ssr: $('#txt_nombre_ssr').val(),
+        rut: $('#txt_rut').val(),
+        email: $('#txt_email').val(),
+        region: $('#txt_region').val(),
         contacto: $('#txt_contacto').val(),
-        problema: $('#txt_problema').val(),
-        solucion: $('#txt_solucion').val(),
-        edita:edita,
-        id: $('#txt_id').val()
-
-    };
+        cargo: $('#txt_cargo').val(),
+        numero: $('#txt_numero').val(),
+        contacto2: $('#txt_contacto2').val(),
+        total_pago: $('#txt_total_pago').val(),
+        numero_factura: $('#txt_numero_factura').val(),
+        id:$('#txt_id').val(),
+        edita:edita
+       };
 
 
     $.ajax({
         type: 'POST',
-        url: '../seguimiento/crea_seguimiento.php',
+        url: '../pago/crea_pago.php',
         data: data,
         dataType: 'json',
         success: function (data) {
@@ -100,14 +107,14 @@ function guardar_seguimiento(){
                 });
             } else {
                 Swal.fire({
-                    title: 'SSR guardado correctamente',
+                    title: 'Pago guardado correctamente',
                     icon: 'success',
                     text: data.mensaje,
                     confirmButtonText: 'Aceptar'
                 });
-                $("#grid_seg").dataTable().fnReloadAjax("../seguimiento/views/data_seguimiento.php");
+                $("#grid_pago").dataTable().fnReloadAjax("../pago/views/data_pago.php");
                 edita = 0;
-                $("#datosSeg").collapse("hide");
+                $("#datosPago").collapse("hide");
                 habilitarCampos(false, true);
             }
         }
@@ -118,69 +125,87 @@ $(document).ready(function () {
 
     llenar_ssr();
 
+
+    $("#txt_mes").datetimepicker({
+        format: "YYYY-MM",
+        useCurrent: true,
+        locale: moment.locale("es"),
+        maxDate: new Date()
+    });
+
+    $('#txt_numero, #txt_total_pago, #txt_numero_factura').on('input', function (e) {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+
+$('#txt_nombre_ssr').on('change', function () {
+
+    var selectedOption = $(this).find('option:selected');
+    var selectedId = selectedOption.val();
+
+    if (selectedId) {
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '../seguimiento/views/aprs.php',
+            data: { id: selectedId }
+        }).done(function (data) {
+            $('#txt_rut').val(data[0].rut);
+            $('#txt_email').val(data[0].email);
+            $('#txt_region').val(data[0].region);
+            $('#txt_contacto').val(data[0].contacto);
+
+            console.log(data);
+        }).fail(function (error) {
+            var respuesta = JSON.parse(error.responseText);
+            alerta.error("alerta", respuesta.message);
+        });
+    }
+});
+
+
     $('#btn_nuevo').on('click', function () {
         habilitarCampos(true, false);
-        $("#datosSeg").collapse("show");
+        $("#datosPago").collapse("show");
         $('#btn_aliminar').prop('disabled', true);
     });
 
 
     $('#btn_cancelar').on('click', function () {
         habilitarCampos(false, true);
-        $("#datosSeg").collapse("hide");
+        $("#datosPago").collapse("hide");
 
-        $('#SeguimientoForm')[0].reset();
+        $('#PagosForm')[0].reset();
         edita = 0;
     });
 
 
     $('#btn_guardar').on('click', function () {
 
-        if ($("#SeguimientoForm").valid()) {
+        if ($("#PagosForm").valid()) {
             guardar_seguimiento();
         }
 
     });
 
 
-    var grid_seg = $("#grid_seg").DataTable({
+    var grid_pago = $("#grid_pago").DataTable({
         responsive: true,
         paging: true,
         destroy: true,
         select: true,
-        ajax: "../seguimiento/views/data_seguimiento.php",
+        ajax: "../pago/views/data_pago.php",
         orderClasses: true,
         select: {
             style: 'single' // O 'multi' si quieres seleccionar múltiples filas
         },
         columns: [
-            { "data": "fecha" },
-            { "data": "ssr" },
-            { "data": "nombre_contacto" },
-            { "data": "cargo" },
-            { "data": "contacto" },
-            { "data": "problema" },
-            { "data": "solucion" },
-            {
-                "data": "estado_seg",
-                "render": function (data, type, row) {
-                    let icono;
-                    switch (data) {
-                        case "Pendiente":
-                            icono = "<span style='background-color:#F7F769; color:#000000;'>Pendiente</span>";
-                            break;
-                        case "No solucionado":
-                            icono = "<span style='background-color:#FB6666; color:#000000;'>No solucionado</span>";
-                            break;
-                        case "Solucionado":
-                            icono = "<span style='background-color:#96D796; color:#000000;'>Solucionado</span>";
-                            break;
-                        default:
-                            icono = data;
-                    }
-                    return icono;
-                }
-            }
+            { "data": "id" },
+            { "data": "fecha_pago" },
+            { "data": "nombre_ssr" },
+            { "data": "mes_glosa" },
+            { "data": "separado" },
+            { "data": "numero_factura" }
+            
         ],
         language: {
             "decimal": "",
@@ -208,8 +233,8 @@ $(document).ready(function () {
     });
 
 
-    $('#grid_seg').on('dblclick', 'tr', function () {
-        var data = grid_seg.row(this).data();
+    $('#grid_pago').on('dblclick', 'tr', function () {
+        var data = grid_pago.row(this).data();
 
 
         Swal.fire({
@@ -223,7 +248,7 @@ $(document).ready(function () {
         }).then((result) => {
             if (result.isConfirmed) {
                 cargar_datos_formulario(data);
-                $("#datosSeg").collapse("show");
+                $("#datosPago").collapse("show");
             }
         });
 

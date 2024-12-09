@@ -413,3 +413,25 @@ create table seguimiento(
      estado int,
      fecha_ingreso date,
      usu_ingreso varchar(255));
+
+
+
+
+create table pago (
+id INT AUTO_INCREMENT PRIMARY KEY,
+fecha_pago date,
+mes date,
+nombre_ssr int,
+rut varchar(12),
+email varchar(255),
+region varchar(3),
+contacto varchar(255),
+cargo varchar(255),
+numero int,
+contacto2 varchar(255),
+total_pago int,
+numero_factura int,
+estado int,
+fecha_ingreso date,
+usu_ingreso varchar(255)
+);

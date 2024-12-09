@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta para contar los registros por estado
-$sql = "SELECT estado_seg, COUNT(*) as total FROM seguimiento GROUP BY estado_seg";
+$sql = "SELECT estado_seg, COUNT(*) as total FROM seguimiento where estado=1 GROUP BY estado_seg";
 $result = $conn->query($sql);
 
 // Inicializar datos por defecto

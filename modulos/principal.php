@@ -46,7 +46,7 @@ if (empty($_SESSION)) {
 
 
             <button id="menu_planes"><i class="fas fa-chalkboard-teacher me-2"></i> Situación Comercial</button>
-            <button id="menu_entrenadores"><i class="fas fa-dollar-sign  me-2"></i> Pagos Software</button>
+            <button id="menu_pagos"><i class="fas fa-dollar-sign  me-2"></i> Pagos Software</button>
             <button id="menu_opciones"><i class="fas fa-cogs me-2"></i> Mdidores</button>
 
         </nav>

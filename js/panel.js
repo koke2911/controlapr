@@ -44,6 +44,7 @@ script.onload = function () {
                     legend: {
                         position: 'right',
                         labels: {
+                            color: '#FFFFFF',
                             boxWidth: 10, // Ancho del cuadro de color junto al texto
                             boxHeight: 10, // Altura del cuadro de color (Chart.js 4.x+)
                             padding: 10, // Espaciado entre etiquetas
@@ -69,8 +70,107 @@ script.onload = function () {
         });
     }
 
+
+    async function fetchIngresosData() {
+        try {
+            const response = await fetch('data_pagos.php'); // Ruta del servidor para obtener los datos
+            const data = await response.json();
+            return data; // data = [{mes: '2024-01', total: 500}, {mes: '2024-02', total: 800}]
+        } catch (error) {
+            console.error('Error al obtener los datos de ingresos:', error);
+            return [];
+        }
+    }
+    
+
+    async function createIngresosChart() {
+        const ingresosData = await fetchIngresosData();
+
+        // Preparar datos para el gráfico
+        const labels = ingresosData.map(item => item.mes);
+        const data = ingresosData.map(item => item.total);
+
+        // Configuración del gráfico
+        const ctx = document.getElementById('pagosChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Ingresos Mensuales',
+                    data: data,
+                    backgroundColor: '#76A9FA',
+                    borderColor: '#4A90E2',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: '#FFFFFF', // Color de las etiquetas de la leyenda
+                            font: {
+                                family: 'Arial',
+                                size: 12,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return `Ingresos: $${tooltipItem.raw.toLocaleString()}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        // title: {
+                        //     display: true,
+                        //     // text: 'Mes',
+                        //     color: '#FFFFFF', // Color del título del eje X
+                        //     font: {
+                        //         family: 'Arial',
+                        //         size: 14
+                        //     }
+                        // },
+                        ticks: {
+                            color: '#FFFFFF', // Color de las etiquetas (meses) del eje X
+                            font: {
+                                size: 12,
+                                family: 'Arial'
+                            }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Ingresos ($)',
+                            color: '#FFFFFF', // Color del título del eje Y
+                            font: {
+                                family: 'Arial',
+                                size: 14
+                            }
+                        },
+                        ticks: {
+                            color: '#FFFFFF', // Color de las etiquetas (valores) del eje Y
+                            font: {
+                                size: 12,
+                                family: 'Arial'
+                            }
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
     // Llamar a la función para renderizar el gráfico
     createSeguimientoChart();
+    createIngresosChart();
 };
 
 

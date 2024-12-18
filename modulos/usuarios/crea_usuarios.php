@@ -40,8 +40,12 @@ $conn = new mysqli($_SESSION['servername'], $_SESSION['username'], $_SESSION['pa
         VALUES ('$rut', '$encript_Pass', '$nombre', '$apellidos', '$fecha_nacimiento', '$contacto', '$email',  '$tipo', 1, date_format('$fecha_creacion','%Y-%m-%d'))";
         
         $result = $conn->query($sql);
-        
-        echo json_encode(['codigo' => 0, 'mensaje' => 'Contraseña: ' . $nuevaPass]);
+
+        if($result){
+            echo json_encode(['codigo' => 0, 'mensaje' => 'Contraseña: ' . $nuevaPass]);
+        }else{
+            echo json_encode(['codigo' => 2, 'mensaje' => 'Error al guardar el usuario']);
+        }
 
     } else if($edita == 1){
         
@@ -49,7 +53,7 @@ $conn = new mysqli($_SESSION['servername'], $_SESSION['username'], $_SESSION['pa
         WHERE id='$id_usuario'";
         $result = $conn->query($sql);
         
-        echo json_encode(['codigo' => 1, 'mensaje' => 'Usuario modificado correctamente']);
+        echo json_encode(['codigo' => 0, 'mensaje' => 'Usuario modificado correctamente']);
 
     }else{
         echo json_encode(['codigo' => 2, 'pamensajess' => 'El rut ya existe']);

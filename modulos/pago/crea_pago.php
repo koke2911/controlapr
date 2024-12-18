@@ -8,7 +8,7 @@ $usuario_session = $_SESSION['id_usuario'];
 
 $fecha_pago = $_POST['fecha_pago'];
 $mes = $_POST['mes'];
-$nombre_ssr = $_POST['nombre_ssr'];
+$id_ssr = $_POST['nombre_ssr'];
 $rut = $_POST['rut'];
 $email = $_POST['email'];
 $region = $_POST['region'];
@@ -22,13 +22,27 @@ $numero_factura = $_POST['numero_factura'];
 $edita = $_POST['edita'];
 $id = $_POST['id'];
 
+if($numero==""){
+    $numero=0;  
+}
+
+$sql_check = "SELECT COUNT(*) as count FROM pago WHERE nombre_ssr = $id_ssr AND mes = '$mes-01'";
+$result_check = $conn->query($sql_check);
+$exists_pago = $result_check->fetch_assoc()['count'] > 0;
+
+if ($exists_pago) {
+    echo json_encode(['codigo' => 2, 'mensaje' => 'El SSR ya posee un pago registrado para este mes']);
+    exit;
+}
+
+
 
 if ($edita == 0) {
     // Inserción de un nuevo registro
     $sql = "INSERT INTO pago (
                 fecha_pago, mes, nombre_ssr, rut, email, region, contacto, cargo, numero, contacto2, total_pago, numero_factura, estado, fecha_ingreso, usu_ingreso
             ) VALUES (
-                '$fecha_pago', '$mes-01', $nombre_ssr, '$rut', '$email', '$region', '$contacto', '$cargo', $numero, '$contacto2', $total_pago, $numero_factura, 1, NOW(), '$usuario_session'
+                '$fecha_pago', '$mes-01', $id_ssr, '$rut', '$email', '$region', '$contacto', '$cargo', $numero, '$contacto2', $total_pago, $numero_factura, 1, NOW(), '$usuario_session'
             )";
 
     $result = $conn->query($sql);
@@ -38,14 +52,14 @@ if ($edita == 0) {
     if ($result) {
         echo json_encode(['codigo' => 0, 'mensaje' => 'Registro creado correctamente']);
     } else {
-        echo json_encode(['codigo' => -1, 'mensaje' => 'Error al crear el registro', 'error' => $conn->error]);
+        echo json_encode(['codigo' => 2, 'mensaje' => 'Error al crear el registro', 'error' => $conn->error]);
     }
 } else if ($edita == 1) {
     // Actualización de un registro existente
     $sql = "UPDATE pago SET 
                 fecha_pago = '$fecha_pago',
                 mes = '$mes-01',
-                nombre_ssr = $nombre_ssr,
+                nombre_ssr = $id_ssr,
                 rut = '$rut',
                 email = '$email',
                 region = '$region',
@@ -65,8 +79,8 @@ if ($edita == 0) {
     $result = $conn->query($sql);
 
     if ($result) {
-        echo json_encode(['codigo' => 1, 'mensaje' => 'Registro actualizado correctamente']);
+        echo json_encode(['codigo' => 0, 'mensaje' => 'Registro actualizado correctamente']);
     } else {
-        echo json_encode(['codigo' => -1, 'mensaje' => 'Error al actualizar el registro', 'error' => $conn->error]);
+        echo json_encode(['codigo' => 2, 'mensaje' => 'Error al actualizar el registro', 'error' => $conn->error]);
     }
 }

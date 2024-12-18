@@ -122,7 +122,8 @@
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-server"></i>
-                <h3><a href="ssr/ssr.php">SSR</a></h3>
+                <h3><a href="ssr/ssr.php">SSR - APR
+                </a></h3>
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-tasks"></i>
@@ -130,7 +131,7 @@
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-chart-line"></i>
-                <h3><a href="situacion-comercial.html">Situación Comercial</a></h3>
+                <h3><a href="cituacion/cituacion.php">Situación Comercial</a></h3>
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-money-bill-wave"></i>
@@ -138,7 +139,7 @@
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-tachometer-alt"></i>
-                <h3><a href="medidores.html">Medidores</a></h3>
+                <h3><a href="medidores/medidores.php">Medidores</a></h3>
             </div>
         </div>
 

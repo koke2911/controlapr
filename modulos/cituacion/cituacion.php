@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pago de Software</title>
+    <title>Situacion Comercial</title>
     <link rel="stylesheet" href="../../static/bootstrap-4.6/bootstrap.min.css">
     <link rel="stylesheet" href="../../static/vendor/datepicker/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="../../static/vendor/datatables/dataTables.cellEdit.css">
@@ -19,7 +19,7 @@
 
 <body>
     <div class="container mt-12" style="max-width: 80%">
-        <h2 class="text-center">Pago de Software</h2>
+        <h2 class="text-center">Situacion Comercial</h2>
         <div class="card shadow mb-12">
             <div class="card-body">
                 <div class="container-fluid">
@@ -32,12 +32,12 @@
                 </div>
             </div>
         </div>
-        <form id="PagosForm">
+        <form id="CituacionForm">
             <div class="card mb-4">
-                <div class="card-header" data-toggle="collapse" data-target="#datosPago" aria-expanded="false" aria-controls="datosPago">
-                    <i class="fas fa-male mr-1"></i>Pago de Software
+                <div class="card-header" data-toggle="collapse" data-target="#datosCituacion" aria-expanded="false" aria-controls="datosCituacion">
+                    <i class="fas fa-male mr-1"></i>Situacion Comercial
                 </div>
-                <div class="card shadow mb-12 collapse" id="datosPago">
+                <div class="card shadow mb-12 collapse" id="datosCituacion">
                     <!-- <div class="card shadow mb-12"> -->
                     <div class="card-body">
                         <div class="container-fluid">
@@ -51,26 +51,20 @@
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
-                                            <label for="txt_fecha_pago" class="form-label">Fecha de pago de software</label>
-                                            <input type="date" class="form-control" id="txt_fecha_pago" name="txt_fecha_pago" disabled required>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                        <div class="mb-3">
-                                            <label for="txt_mes" class="form-label">Mes</label>
-                                            <input type="text" class="form-control" id="txt_mes" name="txt_mes" required placeholder="Mes">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                        <div class="mb-3">
-                                            <label for="txt_nombre_ssr" class="form-label">Nombre SSR</label>
-                                            <select class="form-control" id="txt_nombre_ssr" name="txt_nombre_ssr" disabled required>
+                                            <label for="txt_apr" class="form-label">SSR - APR</label>
+                                            <select class="form-control" id="txt_apr" name="txt_apr" disabled required>
                                                 <option value="">Seleccione un SSR</option>
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" hidden>
+                                        <div class="mb-3">
+                                            <label for="txt_giro" class="form-label">Giro Comercial</label>
+                                            <input type="text" class="form-control" id="txt_giro" name="txt_giro" placeholder="" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_rut" class="form-label">Rut</label>
@@ -79,71 +73,26 @@
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
-                                            <label for="txt_email" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="txt_email" name="txt_email" disabled required maxlength="50">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                        <div class="mb-3">
-                                            <label for="txt_region" class="form-label">Región</label>
-                                            <select class="form-control" id="txt_region" name="txt_region" disabled required>
-                                                <option value="">Seleccione una región</option>
-                                                <option value="I">I</option>
-                                                <option value="II">II</option>
-                                                <option value="III">III</option>
-                                                <option value="IV">IV</option>
-                                                <option value="V">V</option>
-                                                <option value="VI">VI</option>
-                                                <option value="VII">VII</option>
-                                                <option value="VIII">VIII</option>
-                                                <option value="IX">IX</option>
-                                                <option value="X">X</option>
-                                                <option value="XI">XI</option>
-                                                <option value="XII">XII</option>
-                                                <option value="XIII">XIII</option>
-                                            </select>
+                                            <label for="txt_arranques" class="form-label">Arranques</label>
+                                            <input type="text" class="form-control" id="txt_arranques" name="txt_arranques" disabled required maxlength="50">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
-                                            <label for="txt_contacto" class="form-label">Contacto</label>
-                                            <input type="text" class="form-control" id="txt_contacto" name="txt_contacto" disabled maxlength="20">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" hidden>
-                                        <div class="mb-3">
-                                            <label for="txt_cargo" class="form-label">Cargo</label>
-                                            <input type="text" class="form-control" id="txt_cargo" name="txt_cargo" disabled maxlength="20">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" hidden>
-                                        <div class="mb-3">
-                                            <label for="txt_numero" class="form-label">Número</label>
-                                            <input type="text" class="form-control" id="txt_numero" name="txt_numero" disabled maxlength="20">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" hidden>
-                                        <div class="mb-3">
-                                            <label for="txt_contacto2" class="form-label">Contacto 2</label>
-                                            <input type="text" class="form-control" id="txt_contacto2" name="txt_contacto2" disabled maxlength="20">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                        <div class="mb-3">
-                                            <label for="txt_total_pago" class="form-label">Total de pago</label>
-                                            <input type="text" class="form-control" id="txt_total_pago" name="txt_total_pago" disabled required maxlength="20">
+                                            <label for="txt_medidores" class="form-label">Medidores</label>
+                                            <input type="text" class="form-control" id="txt_medidores" name="txt_medidores" disabled required maxlength="50">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
-                                            <label for="txt_numero_factura" class="form-label">Nº factura</label>
-                                            <input type="text" class="form-control" id="txt_numero_factura" name="txt_numero_factura" disabled required maxlength="20">
+                                            <label for="txt_factura" class="form-label">N° Factura</label>
+                                            <input type="text" class="form-control" id="txt_factura" name="txt_factura" disabled required maxlength="50">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                        <div class="mb-3">
+                                            <label for="txt_fecha_adquisicion" class="form-label">Fecha Adquisición</label>
+                                            <input type="date" class="form-control" id="txt_fecha_adquisicion" name="txt_fecha_adquisicion" disabled required maxlength="50">
                                         </div>
                                     </div>
                                 </div>
@@ -160,15 +109,18 @@
                         <div class="card-body">
                             <div class="container-fluid">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="grid_pago" name="grid_pago">
+                                    <table class="table table-bordered" id="grid_cituacion" name="grid_cituacion">
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th>#</th>
-                                                <th>Fecha</th>
-                                                <th>APR</th>
-                                                <th>Mes</th>
-                                                <th>Total $</th>
+                                                <th>SSR</th>
+                                                <th>Rut</th>
+                                                <th>Arranques</th>
+                                                <th>Medidores</th>
                                                 <th>N° Factura</th>
+                                                <th>Fecha Adquisición</th>
+                                                <th>Medidores</th>
+                                                <th>Ver Medidores</th>
                                             </tr>
                                         </thead>
                                     </table>
@@ -200,7 +152,7 @@
     <script type="text/javascript" src="../../static/js/Multiple-Select/dist/js/bootstrap-multiselect.min.js"></script>
     <script type="text/javascript" src="../../static/js/bootstrap-select/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="../../static/js/datatables.responsive.min.js"></script>
-    <script src="../../js/pago/pago.js"></script>
+    <script src="../../js/cituacion/cituacion.js"></script>
 </body>
 
 </html>

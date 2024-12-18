@@ -435,3 +435,23 @@ estado int,
 fecha_ingreso date,
 usu_ingreso varchar(255)
 );
+
+
+-- ***//////
+create table situacion (
+id INT AUTO_INCREMENT PRIMARY KEY,
+id_apr int,
+giro varchar(250),
+numero_factura int,
+fecha_adquisicion date,
+medidores int,
+estado int,
+fecha_ingreso date,
+usu_ingreso varchar(255)
+);
+
+
+
+create table medidores(
+id_situacion int,
+serie_medidor varchar(100));

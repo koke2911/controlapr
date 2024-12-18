@@ -70,7 +70,7 @@ function llenar_ssr() {
 }
 
 
-function guardar_seguimiento() {
+function guardar_pago() {
 
 
     var data = {
@@ -182,7 +182,7 @@ $('#txt_nombre_ssr').on('change', function () {
     $('#btn_guardar').on('click', function () {
 
         if ($("#PagosForm").valid()) {
-            guardar_seguimiento();
+            guardar_pago();
         }
 
     });

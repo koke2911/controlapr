@@ -50,9 +50,11 @@ if ($row_check == 0 && $edita == 0) {
 
     $result = $conn->query($sql);
 
-    // echo $sql;
-
-    echo json_encode(['codigo' => 0, 'mensaje' => 'Registro creado correctamente']);
+    if($result){
+        echo json_encode(['codigo' => 0, 'mensaje' => 'Registro creado correctamente']);
+    }else{
+        echo json_encode(['codigo' => 2, 'mensaje' => 'Error al crear el registro', 'error' => $conn->error]);
+    }
 } else if ($edita == 1) {
     $sql = "UPDATE SSR SET 
                 rut = '$rut_ssr',
@@ -77,7 +79,7 @@ if ($row_check == 0 && $edita == 0) {
 
     $result = $conn->query($sql);
 
-    echo json_encode(['codigo' => 1, 'mensaje' => 'Registro actualizado correctamente']);
+    echo json_encode(['codigo' => 0, 'mensaje' => 'Registro actualizado correctamente']);
 } else {
     echo json_encode(['codigo' => 2, 'mensaje' => 'El RUT ya existe']);
 }

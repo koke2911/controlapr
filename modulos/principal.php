@@ -41,13 +41,13 @@ if (empty($_SESSION)) {
         <nav>
             <button id="menu_inicio"><i class="fas fa-home me-2"></i> Inicio</button>
             <button id="menu_usuarios"><i class="fas fa-users me-2"></i> Usuarios</button>
-            <button id="menu_ssrs"><i class="fas fa-user-injured me-2"></i> SSR</button>
+            <button id="menu_ssrs"><i class="fas fa-user-injured me-2"></i> SSR - APR</button>
             <button id="menu_seguimiento"><i class="fas fa-chart-bar me-2"></i> Obs - Seguimiento</button>
 
 
-            <button id="menu_planes"><i class="fas fa-chalkboard-teacher me-2"></i> Situación Comercial</button>
+            <button id="menu_cituacion"><i class="fas fa-chalkboard-teacher me-2"></i> Situación Comercial</button>
             <button id="menu_pagos"><i class="fas fa-dollar-sign  me-2"></i> Pagos Software</button>
-            <button id="menu_opciones"><i class="fas fa-cogs me-2"></i> Mdidores</button>
+            <button id="menu_medidores"><i class="fas fa-cogs me-2"></i> Medidores</button>
 
         </nav>
 

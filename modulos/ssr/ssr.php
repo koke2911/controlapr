@@ -20,7 +20,7 @@
 
 <body>
     <div class="container mt-5">
-        <h2 class="text-center">SSR</h2>
+        <h2 class="text-center">SSR - APR</h2>
         <div class="card shadow mb-12">
             <div class="card-body">
                 <div class="container-fluid">
@@ -55,19 +55,19 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_rut" class="form-label">RUT (11111111-1)</label>
-                                            <input type="text" class="form-control" id="txt_rut" name="txt_rut" disabled maxlength="12">
+                                            <input type="text" class="form-control" id="txt_rut" name="txt_rut" disabled required maxlength="12">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_nombre_ssr" class="form-label">Nombre SSR</label>
-                                            <input type="text" class="form-control" id="txt_nombre_ssr" name="txt_nombre_ssr" disabled maxlength="20">
+                                            <input type="text" class="form-control" id="txt_nombre_ssr" name="txt_nombre_ssr" disabled required maxlength="20">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="cmb_region" class="form-label">Region</label>
-                                            <select class="form-control" id="cmb_region" name="cmb_region" disabled>
+                                            <select class="form-control" id="cmb_region" name="cmb_region" disabled required>
                                                 <option value="">Seleccione una Region</option>
                                                 <option value="I">I</option>
                                                 <option value="II">II</option>
@@ -98,7 +98,7 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="email" name="email" disabled maxlength="30">
+                                            <input type="email" class="form-control" id="email" name="email" disabled maxlength="30" required>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">

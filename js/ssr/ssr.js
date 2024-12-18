@@ -252,19 +252,21 @@ $(document).ready(function () {
 
     $('#btn_guardar').on('click', function () {
 
-        if ($('#txt_nombre_ssr').val() == '' || $('#txt_rut').val() == '') {
-            Swal.fire({
-                icon: 'error',
-                title: 'Alerta',
-                text: 'Debe ingresar un nombre para el SSR y el RUT'
-            });
+        // if ($('#txt_nombre_ssr').val() == '' || $('#txt_rut').val() == '') {
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Alerta',
+        //         text: 'Debe ingresar un nombre para el SSR y el RUT'
+        //     });
 
-            $('#txt_nombre_ssr').css('border-color', 'red');
-            $('#txt_rut').css('border-color', 'red');
-            return false;
+        //     $('#txt_nombre_ssr').css('border-color', 'red');
+        //     $('#txt_rut').css('border-color', 'red');
+        //     return false;
+        // }
+
+        if ($("#SSRForm").valid()) {
+            guardar_ssr();
         }
-
-        guardar_ssr();
 
     });
 

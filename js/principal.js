@@ -42,15 +42,15 @@ $(document).ready(function () {
 
 
     $('#menu_pagos').on('click', function () {
-        $('#principal').attr('src', '../modulos/pago/pago.php');
+        // $('#principal').attr('src', '../modulos/pago/pago.php');
     });
 
     $('#menu_cituacion').on('click', function () {
-        $('#principal').attr('src', '../modulos/cituacion/cituacion.php');
+        // $('#principal').attr('src', '../modulos/cituacion/cituacion.php');
     });
     
     $('#menu_medidores').on('click', function () {
-        $('#principal').attr('src', '../modulos/medidores/medidores.php');
+        // $('#principal').attr('src', '../modulos/medidores/medidores.php');
     });
 
     

@@ -114,6 +114,44 @@ function guardar_seguimiento(){
     });
 
 }
+
+
+function Eliminar() {
+
+    var data = {
+        id: $('#txt_id').val(),
+        tabla: 'seguimiento',
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: '../elimina.php',
+        data: data,
+        dataType: 'json',
+        success: function (data) {
+            console.log(data.codigo);
+            if (data.codigo == 2) {
+                Swal.fire({
+                    title: 'Ha ocurrido un error',
+                    text: data.mensaje,
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+            } else {
+                Swal.fire({
+                    title: 'seguimiento Eliminado correctamente',
+                    icon: 'success',
+                    text: data.mensaje,
+                    confirmButtonText: 'Aceptar'
+                });
+                $("#grid_seg").dataTable().fnReloadAjax("../seguimiento/views/data_seguimiento.php");
+                edita = 0;
+                $("#datosSeg").collapse("hide");
+                habilitarCampos(false, true);
+            }
+        }
+    });
+}
 $(document).ready(function () {
 
     llenar_ssr();
@@ -122,6 +160,10 @@ $(document).ready(function () {
         habilitarCampos(true, false);
         $("#datosSeg").collapse("show");
         $('#btn_aliminar').prop('disabled', true);
+    });
+
+    $('#btn_aliminar').on('click', function () {
+        Eliminar();
     });
 
 

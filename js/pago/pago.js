@@ -121,6 +121,44 @@ function guardar_pago() {
     });
 
 }
+
+
+function Eliminar() {
+
+    var data = {
+        id: $('#txt_id').val(),
+        tabla: 'pago',
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: '../elimina.php',
+        data: data,
+        dataType: 'json',
+        success: function (data) {
+            console.log(data.codigo);
+            if (data.codigo == 2) {
+                Swal.fire({
+                    title: 'Ha ocurrido un error',
+                    text: data.mensaje,
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+            } else {
+                Swal.fire({
+                    title: 'seguimiento Eliminado correctamente',
+                    icon: 'success',
+                    text: data.mensaje,
+                    confirmButtonText: 'Aceptar'
+                });
+                $("#grid_pago").dataTable().fnReloadAjax("../pago/views/data_pago.php");
+                edita = 0;
+                $("#datosPago").collapse("hide");
+                habilitarCampos(false, true);
+            }
+        }
+    });
+}
 $(document).ready(function () {
 
     llenar_ssr();
@@ -167,6 +205,12 @@ $('#txt_nombre_ssr').on('change', function () {
         habilitarCampos(true, false);
         $("#datosPago").collapse("show");
         $('#btn_aliminar').prop('disabled', true);
+    });
+
+
+
+    $('#btn_aliminar').on('click', function () {
+        Eliminar();
     });
 
 

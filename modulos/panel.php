@@ -131,15 +131,15 @@
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-chart-line"></i>
-                <h3><a href="cituacion/cituacion.php">Situación Comercial</a></h3>
+                <!-- <h3><a href="cituacion/cituacion.php">Situación Comercial</a></h3> -->
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-money-bill-wave"></i>
-                <h3><a href="pago/pago.php">Pagos Software</a></h3>
+                <!-- <h3><a href="pago/pago.php">Pagos Software</a></h3> -->
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-tachometer-alt"></i>
-                <h3><a href="medidores/medidores.php">Medidores</a></h3>
+                <!-- <h3><a href="medidores/medidores.php">Medidores</a></h3> -->
             </div>
         </div>
 

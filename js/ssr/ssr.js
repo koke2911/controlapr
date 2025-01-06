@@ -197,6 +197,43 @@ function validateNumber(event) {
     }
 }
 
+function Eliminar(){
+
+    var data = {
+        id:$('#txt_id').val(),
+        tabla: 'SSR',       
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: '../elimina.php',
+        data: data,
+        dataType: 'json',
+        success: function (data) {
+            console.log(data.codigo);
+            if (data.codigo == 2) {
+                Swal.fire({
+                    title: 'Ha ocurrido un error',
+                    text: data.mensaje,
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+            } else {
+                Swal.fire({
+                    title: 'SSR Eliminado correctamente',
+                    icon: 'success',
+                    text: data.mensaje,
+                    confirmButtonText: 'Aceptar'
+                });
+                $("#grid_ssr").dataTable().fnReloadAjax("../ssr/views/data_ssr.php");
+                edita = 0;
+                $("#datosSSR").collapse("hide");
+                habilitarCampos(false, true);
+            }
+        }
+    });
+}
+
 $(document).ready(function () {
 
     $("#txt_rut").on("keypress", function(event) {
@@ -238,6 +275,10 @@ $(document).ready(function () {
         habilitarCampos(true, false);
         $("#datosSSR").collapse("show");
         $('#btn_aliminar').prop('disabled', true);
+    });
+
+    $('#btn_aliminar').on('click', function () {
+        Eliminar();
     });
 
 

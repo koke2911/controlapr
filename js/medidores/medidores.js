@@ -30,13 +30,14 @@ $(document).ready(function () {
 
 
     $('#txt_apr').on('change', function () {
+        $('#txt_serie').val("");
         var id = $(this).val();
 
         // Obtener la instancia del DataTable
         var table = $("#grid_medidor").DataTable();
 
         // Recargar los datos del DataTable con la URL actualizada
-        table.ajax.url("../medidores/views/data_medidores.php?id=" + id).load(function () {
+        table.ajax.url("../medidores/views/data_medidores.php?id=" + id+"&serie=").load(function () {
             // Esto se ejecuta después de que los datos se hayan recargado correctamente
 
             // Contar el total de filas en el DataTable
@@ -48,6 +49,17 @@ $(document).ready(function () {
     });
 
 
+    $('#txt_serie').keypress(function (e) {
+        if (e.which == 13) { // Enter
+            $('#txt_apr').val("");
+            $('#txt_cantidad_medidores').val("");
+            var table = $("#grid_medidor").DataTable();
+
+            table.ajax.url("../medidores/views/data_medidores.php?id=&serie="+$(this).val()).load();
+        }
+    });
+
+
 
 
     var grid_medidor = $("#grid_medidor").DataTable({
@@ -55,13 +67,14 @@ $(document).ready(function () {
         paging: true,
         destroy: true,
         select: true,
-        ajax: "../medidores/views/data_medidores.php?id=",
+        ajax: "../medidores/views/data_medidores.php?id=&serie=",
         orderClasses: true,
         select: {
             style: 'single' // O 'multi' si quieres seleccionar múltiples filas
         },
         columns: [
             { "data": "numero_factura" },
+            { "data": "apr" },
             { "data": "fecha_adquisicion" },
             { "data": "serie_medidor" }
         ],

@@ -14,7 +14,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM SSR order by ssr asc";
+$sql = "SELECT * FROM SSR where estado=1 order by ssr asc";
 $result = $conn->query($sql);
 
 $filas = [];

@@ -58,6 +58,14 @@
 
                                     </div>
                                 </div>
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="txt_serie" class="form-label">N° Serie</label>
+                                        <input type="text" class="form-control" id="txt_serie" name="txt_serie" placeholder="Enter para Buscar">
+
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -77,9 +85,10 @@
                                 <table class="table table-bordered" id="grid_medidor" name="grid_medidor">
                                     <thead class="thead-dark">
                                         <tr>
-                                            <th>Factura</th>
-                                            <th>Adquisicion</th>
-                                            <th>Numero Serie</th>
+                                            <th style="width: 15%;">N° Factura</th>
+                                            <th style="width: 40%;">APR</th>
+                                            <th style="width: 15%;">Fecha Adquisición</th>
+                                            <th style="width: 15%;">Numero Serie</th>
                                         </tr>
                                     </thead>
                                 </table>

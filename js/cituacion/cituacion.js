@@ -177,6 +177,44 @@ function agrergar_medidor(id) {
     });
 }
 
+
+function Eliminar() {
+
+    var data = {
+        id: $('#txt_id').val(),
+        tabla: 'situacion',
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: '../elimina.php',
+        data: data,
+        dataType: 'json',
+        success: function (data) {
+            console.log(data.codigo);
+            if (data.codigo == 2) {
+                Swal.fire({
+                    title: 'Ha ocurrido un error',
+                    text: data.mensaje,
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+            } else {
+                Swal.fire({
+                    title: 'seguimiento Eliminado correctamente',
+                    icon: 'success',
+                    text: data.mensaje,
+                    confirmButtonText: 'Aceptar'
+                });
+                $("#grid_cituacion").dataTable().fnReloadAjax("../cituacion/views/data_cituacion.php");
+                edita = 0;
+                $("#datosCituacion").collapse("hide");
+                habilitarCampos(false, true);
+            }
+        }
+    });
+}
+
 $(document).ready(function () {
 
     llenar_ssr();
@@ -217,6 +255,11 @@ $(document).ready(function () {
         habilitarCampos(true, false);
         $("#datosCituacion").collapse("show");
         $('#btn_aliminar').prop('disabled', true);
+    });
+
+    $('#btn_aliminar').on('click', function () {
+       
+        Eliminar();
     });
 
 

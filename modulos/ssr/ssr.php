@@ -61,7 +61,7 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_nombre_ssr" class="form-label">Nombre SSR</label>
-                                            <input type="text" class="form-control" id="txt_nombre_ssr" name="txt_nombre_ssr" disabled required maxlength="20">
+                                            <input type="text" class="form-control" id="txt_nombre_ssr" name="txt_nombre_ssr" disabled required maxlength="250">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
@@ -98,13 +98,13 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="email" name="email" disabled maxlength="30" required>
+                                            <input type="email" class="form-control" id="email" name="email" disabled maxlength="250"> required>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_direccion" class="form-label"> Direccion</label>
-                                            <input type="text" class="form-control" id="txt_direccion" name="txt_direccion" disabled maxlength="9">
+                                            <input type="text" class="form-control" id="txt_direccion" name="txt_direccion" disabled maxlength="250">
                                         </div>
                                     </div>
                                 </div>
@@ -112,19 +112,19 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_presidente" class="form-label"> Presidente</label>
-                                            <input type="text" class="form-control" id="txt_presidente" name="txt_presidente" disabled maxlength="9">
+                                            <input type="text" class="form-control" id="txt_presidente" name="txt_presidente" disabled maxlength="250">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_secretario" class="form-label"> Secretario</label>
-                                            <input type="text" class="form-control" id="txt_secretario" name="txt_secretario" disabled maxlength="9">
+                                            <input type="text" class="form-control" id="txt_secretario" name="txt_secretario" disabled maxlength="250">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_tesorero" class="form-label"> Tesorero</label>
-                                            <input type="text" class="form-control" id="txt_tesorero" name="txt_tesorero" disabled maxlength="9">
+                                            <input type="text" class="form-control" id="txt_tesorero" name="txt_tesorero" disabled maxlength="250">
                                         </div>
                                     </div>
                                 </div>
@@ -132,13 +132,13 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_nombre" class="form-label"> Nombre</label>
-                                            <input type="text" class="form-control" id="txt_nombre" name="txt_nombre" disabled maxlength="9">
+                                            <input type="text" class="form-control" id="txt_nombre" name="txt_nombre" disabled maxlength="250">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_contacto" class="form-label"> Contacto</label>
-                                            <input type="text" class="form-control" id="txt_contacto" name="txt_contacto" disabled maxlength="9">
+                                            <input type="text" class="form-control" id="txt_contacto" name="txt_contacto" disabled maxlength="250">
                                         </div>
                                     </div>
                                 </div>
@@ -146,13 +146,13 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_nombre2" class="form-label"> Nombre 2</label>
-                                            <input type="text" class="form-control" id="txt_nombre2" name="txt_nombre2" disabled maxlength="9">
+                                            <input type="text" class="form-control" id="txt_nombre2" name="txt_nombre2" disabled maxlength="250">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_contacto2" class="form-label"> Contacto 2</label>
-                                            <input type="text" class="form-control" id="txt_contacto2" name="txt_contacto2" disabled maxlength="9">
+                                            <input type="text" class="form-control" id="txt_contacto2" name="txt_contacto2" disabled maxlength="250">
                                         </div>
                                     </div>
                                 </div>
@@ -160,13 +160,13 @@
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_arranques" class="form-label"> Arranques</label>
-                                            <input type="text" class="form-control" id="txt_arranques" name="txt_arranques" disabled maxlength="9">
+                                            <input type="text" class="form-control" id="txt_arranques" name="txt_arranques" disabled maxlength="250">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                         <div class="mb-3">
                                             <label for="txt_medidores" class="form-label"> Medidores</label>
-                                            <input type="text" class="form-control" id="txt_medidores" name="txt_medidores" disabled maxlength="9">
+                                            <input type="text" class="form-control" id="txt_medidores" name="txt_medidores" disabled maxlength="250">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">

@@ -211,7 +211,10 @@ $(document).ready(function () {
 
         Swal.fire({
             title: 'Ingrese su nueva contraseña',
-            input: 'text',
+            input: 'password',
+            inputAttributes: {
+                'maxlength': 10
+            },
             inputLabel: 'Contraseña nueva',
             inputPlaceholder: 'Ingrese su nueva contraseña (minimo 8 caracteres)',
             showCancelButton: true,

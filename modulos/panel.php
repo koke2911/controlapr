@@ -139,7 +139,7 @@
             </div>
             <div class="dashboard-card">
                 <i class="fas fa-tachometer-alt"></i>
-                <!-- <h3><a href="medidores/medidores.php">Medidores</a></h3> -->
+                <h3><a href="medidores/medidores.php">Medidores</a></h3>
             </div>
         </div>
 

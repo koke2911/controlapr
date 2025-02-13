@@ -50,7 +50,7 @@ $(document).ready(function () {
     });
     
     $('#menu_medidores').on('click', function () {
-        // $('#principal').attr('src', '../modulos/medidores/medidores.php');
+        $('#principal').attr('src', '../modulos/medidores/medidores.php');
     });
 
     

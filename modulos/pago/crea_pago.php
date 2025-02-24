@@ -26,7 +26,7 @@ if($numero==""){
     $numero=0;  
 }
 
-$sql_check = "SELECT COUNT(*) as count FROM pago WHERE nombre_ssr = $id_ssr AND mes = '$mes-01'";
+$sql_check = "SELECT COUNT(*) as count FROM pago WHERE nombre_ssr = $id_ssr AND mes = '$mes-01' and estado=1";
 $result_check = $conn->query($sql_check);
 $exists_pago = $result_check->fetch_assoc()['count'] > 0;
 

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../../static/css/select.dataTables.min.css">
     <link href="../../static/js/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
 
+    <!-- <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script> -->
     <script src="../../static/js/fontawesome.all.js" crossorigin="anonymous"></script>
 
 
@@ -203,6 +204,18 @@
     <script type="text/javascript" src="../../static/js/Multiple-Select/dist/js/bootstrap-multiselect.min.js"></script>
     <script type="text/javascript" src="../../static/js/bootstrap-select/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="../../static/js/datatables.responsive.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+
+
+
+
     <script src="../../js/pago/pago.js"></script>
 </body>
 

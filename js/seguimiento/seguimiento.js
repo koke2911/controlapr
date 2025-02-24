@@ -224,6 +224,32 @@ $(document).ready(function () {
                 }
             }
         ],
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fas fa-file-excel"></i> Excel',
+                titleAttr: 'Exportar a Excel',
+                className: 'btn btn-success',
+                title: "Informe de Socios"
+            },
+            {
+                extend: 'pdfHtml5',
+                text: '<i class="fas fa-file-pdf"></i> PDF',
+                titleAttr: 'Exportar a PDF',
+                className: 'btn btn-danger',
+                title: "Informe de Socios",
+                orientation: 'landscape',
+                pageSize: 'TABLOID'
+            },
+            {
+                extend: 'print',
+                text: '<i class="fa fa-print"></i> Imprimir',
+                titleAttr: 'Imprimir',
+                className: 'btn btn-info',
+                title: "Informe de Socios"
+            },
+        ],
         language: {
             "decimal": "",
             "emptyTable": "No hay información",
